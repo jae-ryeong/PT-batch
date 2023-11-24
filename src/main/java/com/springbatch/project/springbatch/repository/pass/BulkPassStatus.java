@@ -1,7 +1,6 @@
 package com.springbatch.project.springbatch.repository.pass;
 
-public enum PassStatus {
+public enum BulkPassStatus {
     READY,
-    PROGRESSED,
-    EXPIRED
+    COMPLETED
 }
