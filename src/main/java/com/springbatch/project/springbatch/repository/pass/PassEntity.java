@@ -21,7 +21,7 @@ public class PassEntity {
 
     private PassStatus status;
 
-    private Integer remainingCount;
+    private Integer remainingCount; // 남은 횟수
 
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;
