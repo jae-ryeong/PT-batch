@@ -68,6 +68,7 @@ public class AddPassesTaskletTest {
         //then
         assertThat(repeatStatus).isEqualTo(RepeatStatus.FINISHED);
 
+        // 중간에 어떤 인자 값이 들어가는지 알 수 있게 ArgumentCaptor사용
         ArgumentCaptor<List> passEntitiesCaptor = ArgumentCaptor.forClass(List.class);
         verify(passRepository, times(1)).saveAll(passEntitiesCaptor.capture());
         List<PassEntity> passEntities = passEntitiesCaptor.getValue();
