@@ -4,10 +4,11 @@ package com.springbatch.project.springbatch.repository.pass;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-// ReportingPolicy.IGNORE: 일치하지 않는 필드를 무시합니다.
-@Mapper
+// ReportingPolicy.IGNORE: 일치하지 않는 필드는 무시
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PassModelMapper {
     PassModelMapper INSTANCE = Mappers.getMapper(PassModelMapper.class); // Instance를 선언해주면 매퍼에 대한 접근이 가능, 매퍼 클래스에서 PassModelMapper를 찾을 수 있도록 해준다
 
@@ -19,7 +20,7 @@ public interface PassModelMapper {
     @Mapping(target = "remainingCount", source = "bulkPassEntity.count")
     PassEntity toPassEntity(BulkPassEntity bulkPassEntity, String userId);  // bulkPassEntity를 PassEntity로 매핑
 
-    // BulkPassStatus와 관계 없이 PassStatus값을 설정
+    // BulkPassStatus와 관계 없이 PassStatus값을 READY로 설정
     @Named("defaultStatus")
     default PassStatus status(BulkPassStatus status) {
         return PassStatus.READY;
