@@ -1,5 +1,6 @@
 package com.springbatch.project.springbatch.repository.pass;
 
+import com.springbatch.project.springbatch.repository.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 @Table(name = "pass")
-public class PassEntity {
+public class PassEntity extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer passSeq;
 
