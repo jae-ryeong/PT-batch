@@ -28,6 +28,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux' // WebClient
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor" // @ConfigurationProperties
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
 
 	// db
 	runtimeOnly 'com.h2database:h2'
