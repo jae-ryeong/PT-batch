@@ -1,6 +1,5 @@
 package com.springbatch.project.springbatch.repository.user;
 
-import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +12,7 @@ import java.util.Map;
 @ToString
 @Entity
 @Table(name = "user")
-@Convert(converter = JsonType.class)
+//@Convert(converter = JsonType.class)
 public class UserEntity {
     @Id
     private String userId;

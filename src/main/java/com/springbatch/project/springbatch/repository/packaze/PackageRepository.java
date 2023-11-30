@@ -17,4 +17,6 @@ public interface PackageRepository extends JpaRepository<PackageEntity, Integer>
     @Modifying
     @Query(value = "update PackageEntity p set p.count = :count, p.period = :period where p.packageSeq = :packageSeq")
     int updateCountAndPeriod(Integer packageSeq, Integer count, Integer period);
+
+    List<PackageEntity> findAllByOrderByPackageName();
 }

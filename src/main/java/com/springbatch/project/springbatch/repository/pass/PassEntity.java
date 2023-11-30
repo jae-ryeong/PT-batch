@@ -1,6 +1,7 @@
 package com.springbatch.project.springbatch.repository.pass;
 
 import com.springbatch.project.springbatch.repository.BaseEntity;
+import com.springbatch.project.springbatch.repository.packaze.PackageEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,4 +28,8 @@ public class PassEntity extends BaseEntity {
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;
     private LocalDateTime expiredAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "packageSeq", insertable = false, updatable = false)
+    private PackageEntity packageEntity;
 }

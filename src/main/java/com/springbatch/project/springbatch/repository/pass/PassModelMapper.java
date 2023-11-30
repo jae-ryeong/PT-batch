@@ -1,11 +1,14 @@
 package com.springbatch.project.springbatch.repository.pass;
 
 
+import com.springbatch.project.springbatch.service.pass.Pass;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 // ReportingPolicy.IGNORE: 일치하지 않는 필드는 무시
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
@@ -25,4 +28,9 @@ public interface PassModelMapper {
     default PassStatus status(BulkPassStatus status) {
         return PassStatus.READY;
     }
+
+    @Mapping(target = "packageName", source = "packageEntity.packageName")
+    Pass map(PassEntity passEntity);
+
+    List<Pass> map(List<PassEntity> passEntities);
 }

@@ -24,4 +24,15 @@ public class BulkPassEntity {
 
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;
+
+    public void setEndedAt(Integer period) {
+        if (period == null) {
+            return;
+        }
+        this.endedAt = this.startedAt.plusDays(period);
+    }
+
+    public void setEndedAt(LocalDateTime endedAt) {
+        this.endedAt = endedAt;
+    }
 }
